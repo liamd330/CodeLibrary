@@ -1,0 +1,63 @@
+// CSS Library
+
+
+
+// First: Responsive iFrame for YouTube Videos. Makes video mobile-responsive.
+
+    // Example iFrame HTML: 
+    
+        //  <div class="video-responsive">
+        //  <iframe id="video" width="320" height="240" src="https://www.youtube.com/embed/KSc3j4AFx8w" //frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        //  </div>
+          
+// CSS Code: 
+
+.video-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.video-responsive iframe{
+    left:30%;
+    top:0;
+    height:50%;
+    width:40%;
+    position:absolute;
+}
+
+
+// Second: Fixed Frame menu at Top of screen. Can click menu links to jump to section. Id's in this 
+// example are the links in the menu.
+
+//CSS Code: 
+
+#product-info::before, #video::before, #testing::before {
+    display: block;
+    content: " ";
+    margin-top: -150px;
+    height: 150px;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+
+
+// JS Library
+
+// First: Get JSON Data
+
+// From FreeCodeCamp Data Visualization tutorial. Need a #getMessage id (as a button to click)
+// and a #message id to place the message in. req.open() function is where you put JSON link.
+
+  document.addEventListener('DOMContentLoaded',function(){
+    document.getElementById('getMessage').onclick=function(){
+      req=new XMLHttpRequest();
+      req.open("GET",'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json',true);
+      req.send();
+      req.onload=function(){
+        json=JSON.parse(req.responseText);
+        document.getElementById('message').innerHTML=JSON.stringify(json.data);
+          
+          console.log(json.data[0]);
