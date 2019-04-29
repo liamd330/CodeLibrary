@@ -1,8 +1,7 @@
+
 // CSS Library
 
-
-
-// First: Responsive iFrame for YouTube Videos. Makes video mobile-responsive.
+// Responsive iFrame for YouTube Videos. Makes video mobile-responsive.
 
     // Example iFrame HTML: 
     
@@ -10,7 +9,7 @@
         //  <iframe id="video" width="320" height="240" src="https://www.youtube.com/embed/KSc3j4AFx8w" //frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         //  </div>
           
-// CSS Code: 
+// CSS: 
 
 .video-responsive{
     overflow:hidden;
@@ -27,10 +26,10 @@
 }
 
 
-// Second: Fixed Frame menu at Top of screen. Can click menu links to jump to section. Id's in this 
+// Fixed Frame menu at Top of screen. Can click menu links to jump to section. Id's in this 
 // example are the links in the menu.
 
-//CSS Code: 
+//CSS: 
 
 #product-info::before, #video::before, #testing::before {
     display: block;
@@ -42,11 +41,38 @@
 }
 
 
+// Responsive Images
+
+    CSS:
+    
+    .responsive {
+        width: 100%;
+        height: auto;
+        }
+        
+// Three-Column Framework
+
+    CSS: 
+    
+    nav {
+        float: left;
+        width: 400px; /* Or any fixed width */
+        }
+        
+    aside {
+        float: right;
+        width: 300px; /* Or any fixed width */
+        }
+        
+     main {
+        margin: 0 300px 0 400px; /* Or the widths specificed in aside (right) and nav (left) */
+        }
+
 
 
 // JS Library
 
-// First: Get JSON Data
+// Get JSON Data
 
 // From FreeCodeCamp Data Visualization tutorial. Need a #getMessage id (as a button to click)
 // and a #message id to place the message in. req.open() function is where you put JSON link.
@@ -61,3 +87,29 @@
         document.getElementById('message').innerHTML=JSON.stringify(json.data);
           
           console.log(json.data[0]);
+          
+// Form Validation (Email Address)
+
+    HTML: 
+    
+        <form method="post" action="https://webdevbasics.net/scripts/demo.php" onsubmit="return validateMyForm()">
+		    <input type="text" placeholder="Enter Your Email Address" name="emailAddress">
+		    <button type="submit">BUTTON TEXT</button>
+	    </form>
+        
+    JS:
+        
+        //Regular Expression for Emails: /\w+@\w+\.\w+/
+
+	    function validateMyForm() {
+			
+		    if (document.forms[0].emailAddress.value == "") {
+			    alert("Please enter your email address.");
+			    return false;
+			    }
+		    if (/\w+@\w+\.\w+/.test(document.forms[0].emailAddress.value) == false) {
+			    alert("Please enter a valid email address.");
+			    return false;
+		    }
+			    return true;
+		    }
