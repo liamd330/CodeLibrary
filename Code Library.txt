@@ -113,3 +113,5 @@
 		    }
 			    return true;
 		    }
+
+	// Use forms[0] for first form element, forms[1] for second, etc. or use document.getElementById()
